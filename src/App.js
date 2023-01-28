@@ -1,10 +1,15 @@
-import './App.css';
+import React from 'react'
+import Header from "./components/Header";
+import './stylesheet/App.css';
+//import './stylesheet/Clean.css';
 
-function App() {
-  return (
-    <div>
-    </div>
+const App = () =>{
+  return(
+    <>
+      <Header/>
+    </>
   );
-}
+};
+
 
 export default App;
