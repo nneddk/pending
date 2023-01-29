@@ -1,5 +1,5 @@
 .header{
-    background-image: linear-gradient(to bottom, transparent, orange);
+    background-image: linear-gradient(to bottom, orange, orange);
     height: 80vh;
     width:100vw;
     display: flex;
@@ -11,6 +11,17 @@
     position: fixed;
     overflow: hidden;
 
+    z-index: 1;
+
+}
+.header-minimized{
+    background-color: orange;
+    height: 0;
+    top:0;
+    position:sticky;
+    overflow: hidden;
+
+    z-index: 1;
 }
 *{
     border:solid;
