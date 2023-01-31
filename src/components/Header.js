@@ -2,23 +2,31 @@ import React, {useState} from "react";
 import '../stylesheet/components/Header.css'
 /* API: https://v6.exchangerate-api.com/v6/e667579449fad91748dcaa24/latest/PHP */
 
-window.addEventListener('scroll' ,(e) => {
-    const headerExtended = document.querySelector('.header');
-    const headerMinimized = document.querySelector('.header-minimized');
-    if(window.scrollY > 0){
-        headerExtended.style.height = '0';
-        headerMinimized.style.transition = 'all 0.3s';
-        headerMinimized.style.height = '10vh';
+window.addEventListener('scroll' ,() => {
+    if(window.scrollY > 0 && isHeaderExtended){
+        extendHeader();
     }
-    
-    if(window.scrollY === 0){
-        headerExtended.style.height = '80vh';
-        headerMinimized.style.transition = 'all 0s';
-        headerMinimized.style.height = '0';
-        
-        
-    }
+    if(window.scrollY === 0 && !isHeaderExtended){
+        extendHeader();
+    }   
 });
+
+let isHeaderExtended = true;
+const extendHeader = () =>{
+    const headerExtended = document.querySelector('.header');
+    const balanceHeader = document.querySelector('.current-balance-div');
+    if(isHeaderExtended){
+        isHeaderExtended = !isHeaderExtended;
+        headerExtended.style.height = '10vh';
+        balanceHeader.style.fontSize = '4em';
+    }else if(!isHeaderExtended){
+        isHeaderExtended = !isHeaderExtended;
+        headerExtended.style.height = '80vh';
+        balanceHeader.style.fontSize = '15em'; 
+    }
+}
+
+
 
 const Header = () =>{
     
@@ -26,13 +34,10 @@ const Header = () =>{
     const [currentBalance, setCurrentBalance] = useState(1000.00);
     return(
         <>
-            <div className="header">
+            <div className="header" onClick={extendHeader}>
                 <div className="current-balance-div">
                     {currentBalance}
                 </div>
-            </div>
-            <div className="header-minimized">
-                <span>{currentBalance}</span>
             </div>
         </>
         
