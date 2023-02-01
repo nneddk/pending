@@ -1,5 +1,31 @@
 .Main{
-    min-height: 120vh;
+    min-height: 110vh;
     background-color: lightgrey;
+    display: grid;
+    grid-template-columns: 0.5fr 2fr;
+}
+.main-sidebar{
+    border: solid;
+
+    padding-top: 18vh;
+    color:white;
+    font-size: 14em;
+
+    height: 40vh;
+    position: sticky;
+
+    top: 8vh;
     
+}
+.current-expenses-div{
+    border:solid;
+
+    padding-top: 18vh;
+    top :8vh;
+    color:white;
+    font-size: 14em;
+
+    position: sticky;
+    
+    height: 40vh;
 }
