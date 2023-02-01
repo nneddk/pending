@@ -15,13 +15,13 @@ let isHeaderExtended = true;
 const extendHeader = () =>{
     const headerExtended = document.querySelector('.header');
     const balanceHeader = document.querySelector('.current-balance-div');
-    if(isHeaderExtended){
+    if(isHeaderExtended && window.scrollY!==0){
         isHeaderExtended = !isHeaderExtended;
-        headerExtended.style.height = '10vh';
+        headerExtended.style.height = '8vh';
         balanceHeader.style.fontSize = '4em';
     }else if(!isHeaderExtended){
         isHeaderExtended = !isHeaderExtended;
-        headerExtended.style.height = '80vh';
+        headerExtended.style.height = '60vh';
         balanceHeader.style.fontSize = '15em'; 
     }
 }
